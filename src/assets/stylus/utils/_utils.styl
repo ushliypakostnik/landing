@@ -1,0 +1,649 @@
+
+// Utility CSS Classes
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+.hidden--block--desktops
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display block !important
+
+.hidden--block--widest
+  +$widest()
+    display none !important
+
+  +$wide()
+    display block !important
+
+  +$gadgets()
+    display block !important
+
+.hidden--block--wide
+  +$widest()
+    display block !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display block !important
+
+.hidden--block--gadgets
+  +$desktops()
+    display block !important
+
+  +$gadgets()
+    display none !important
+
+.hidden--block--middle
+  +$desktops()
+    display block !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display block !important
+
+.hidden--block--not-narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display block !important
+
+.hidden--block--narrow
+  +$desktops()
+    display block !important
+
+  +$middle()
+    display block !important
+
+  +$narrow()
+    display none !important
+
+.visible--block--desktops
+  +$desktops()
+    display block !important
+
+  +$gadgets()
+    display none !important
+
+.visible--block--widest
+  +$widest()
+    display block !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display none !important
+
+.visible--block--wide
+  +$widest()
+    display none !important
+
+  +$wide()
+    display block !important
+
+  +$gadgets()
+    display none !important
+
+.visible--block--gadgets
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display block !important
+
+.visible--block--middle
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display block !important
+
+  +$narrow()
+    display none !important
+
+.visible--block--not-narrow
+  +$desktops()
+    display block !important
+
+  +$middle()
+    display block !important
+
+  +$narrow()
+    display none !important
+
+.visible--block--narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display block !important
+
+.hidden--inline-block--desktops
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display inline-block !important
+
+.hidden--inline-block--widest
+  +$widest()
+    display none !important
+
+  +$wide()
+    display inline-block !important
+
+  +$gadgets()
+    display inline-block !important
+
+.hidden--inline-block--wide
+  +$widest()
+    display inline-block !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display inline-block !important
+
+.hidden--inline-block--gadgets
+  +$desktops()
+    display inline-block !important
+
+  +$gadgets()
+    display none !important
+
+.hidden--inline-block--middle
+  +$desktops()
+    display inline-block !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline-block !important
+
+.hidden--inline-block--not-narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline-block !important
+
+.hidden--inline-block--narrow
+  +$desktops()
+    display inline-block !important
+
+  +$middle()
+    display inline-block !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline-block--desktops
+  +$desktops()
+    display inline-block !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline-block--widest
+  +$widest()
+    display inline-block !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline-block--wide
+  +$widest()
+    display none !important
+
+  +$wide()
+    display inline-block !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline-block--gadgets
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display inline-block !important
+
+.visible--inline-block--middle
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display inline-block !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline-block--not-narrow
+  +$desktops()
+    display inline-block !important
+
+  +$middle()
+    display inline-block !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline-block--narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline-block !important
+
+.hidden--inline--desktops
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display inline !important
+
+.hidden--inline--widest
+  +$widest()
+    display none !important
+
+  +$wide()
+    display inline !important
+
+  +$gadgets()
+    display inline !important
+
+.hidden--inline--wide
+  +$widest()
+    display inline !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display inline !important
+
+.hidden--inline--gadgets
+  +$desktops()
+    display inline !important
+
+  +$gadgets()
+    display none !important
+
+.hidden--inline--middle
+  +$desktops()
+    display inline !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline !important
+
+.hidden--inline--not-narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline !important
+
+.hidden--inline--narrow
+  +$desktops()
+    display inline !important
+
+  +$middle()
+    display inline !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline--desktops
+  +$desktops()
+    display inline !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline--widest
+  +$widest()
+    display inline !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline--wide
+  +$widest()
+    display none !important
+
+  +$wide()
+    display inline !important
+
+  +$gadgets()
+    display none !important
+
+.visible--inline--gadgets
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display inline !important
+
+.visible--inline--middle
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display inline !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline--not-narrow
+  +$desktops()
+    display inline !important
+
+  +$middle()
+    display inline !important
+
+  +$narrow()
+    display none !important
+
+.visible--inline--narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display inline !important
+
+.hidden--flex--desktops
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display flex !important
+
+.hidden--flex--widest
+  +$widest()
+    display none !important
+
+  +$wide()
+    display flex !important
+
+  +$gadgets()
+    display flex !important
+
+.hidden--flex--wide
+  +$widest()
+    display flex !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display flex !important
+
+.hidden--flex--gadgets
+  +$desktops()
+    display flex !important
+
+  +$gadgets()
+    display none !important
+
+.hidden--flex--middle
+  +$desktops()
+    display flex !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display flex !important
+
+.hidden--flex--not-narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display flex !important
+
+.hidden--flex--narrow
+  +$desktops()
+    display flex !important
+
+  +$middle()
+    display flex !important
+
+  +$narrow()
+    display none !important
+
+.visible--flex--desktops
+  +$desktops()
+    display flex !important
+
+  +$gadgets()
+    display none !important
+
+.visible--flex--widest
+  +$widest()
+    display flex !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display none !important
+
+.visible--flex--wide
+  +$widest()
+    display none !important
+
+  +$wide()
+    display flex !important
+
+  +$gadgets()
+    display none !important
+
+.visible--flex--gadgets
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display flex !important
+
+.visible--flex--middle
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display flex !important
+
+  +$narrow()
+    display none !important
+
+.visible--flex--not-narrow
+  +$desktops()
+    display flex !important
+
+  +$middle()
+    display flex !important
+
+  +$narrow()
+    display none !important
+
+.visible--flex--narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display flex !important
+
+.hidden--grid--desktops
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display grid !important
+
+.hidden--grid--widest
+  +$widest()
+    display none !important
+
+  +$wide()
+    display grid !important
+
+  +$gadgets()
+    display grid !important
+
+.hidden--grid--wide
+  +$widest()
+    display grid !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display grid !important
+
+.hidden--grid--gadgets
+  +$desktops()
+    display grid !important
+
+  +$gadgets()
+    display none !important
+
+.hidden--grid--middle
+  +$desktops()
+    display grid !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display grid !important
+
+.hidden--grid--not-narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display grid !important
+
+.hidden--grid--narrow
+  +$desktops()
+    display grid !important
+
+  +$middle()
+    display grid !important
+
+  +$narrow()
+    display none !important
+
+.visible--grid--desktops
+  +$desktops()
+    display grid !important
+
+  +$gadgets()
+    display none !important
+
+.visible--grid--widest
+  +$widest()
+    display grid !important
+
+  +$wide()
+    display none !important
+
+  +$gadgets()
+    display none !important
+
+.visible--grid--wide
+  +$widest()
+    display none !important
+
+  +$wide()
+    display grid !important
+
+  +$gadgets()
+    display none !important
+
+.visible--grid--gadgets
+  +$desktops()
+    display none !important
+
+  +$gadgets()
+    display grid !important
+
+.visible--grid--middle
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display grid !important
+
+  +$narrow()
+    display none !important
+
+.visible--grid--not-narrow
+  +$desktops()
+    display grid !important
+
+  +$middle()
+    display grid !important
+
+  +$narrow()
+    display none !important
+
+.visible--grid--narrow
+  +$desktops()
+    display none !important
+
+  +$middle()
+    display none !important
+
+  +$narrow()
+    display grid !important
+
+
+
+

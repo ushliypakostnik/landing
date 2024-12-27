@@ -1,0 +1,131 @@
+// Mixins
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+// Фундаментальное отличие миксинов от плейсхолдеров в том что, кроме нюансов при компиляции -
+// плейсхолдеры, в отличие от параметризированных миксинов, не могут быть включены в медиа-запросы,
+// но сами, при этом, могут их использовать. Примеси могут принимать аргументы и самое важное - контент.
+
+// Media
+//////////////////////////////////////////////////////
+// Breakpoints in _variables.styl
+
+$desktops()
+  @media only screen and (min-width $breakpoints.desktop)
+    {block}
+
+$widest()
+  @media only screen and (min-width $breakpoints.large)
+    {block}
+
+$wide()
+  @media only screen and (min-width $breakpoints.desktop) and (max-width $breakpoints.desktop--max)
+    {block}
+
+$gadgets()
+  @media only screen and (max-width $breakpoints.tablet--max)
+    {block}
+
+$middle()
+  @media only screen and (min-width $breakpoints.tablet) and (max-width $breakpoints.tablet--max)
+    {block}
+
+$not-narrow()
+  @media only screen and (min-width $breakpoints.tablet)
+    {block}
+
+$narrow()
+  @media only screen and (max-width $breakpoints.mobile--max)
+    {block}
+
+
+// Opacity
+//////////////////////////////////////////////////////
+$opacity($name)
+  if $name == "odo"
+    opacity $opacites.odo // 1
+  if $name == "pake"
+    opacity $opacites.pake // 0.96
+  if $name == "pudre"
+    opacity $opacites.pudre // 0.88
+  if $name == "tesa"
+    opacity $opacites.tesa // 0.8
+  if $name == "ekas"
+    opacity $opacites.ekas // 0.72 text default state
+  if $name == "zeton"
+    opacity $opacites.zeton // 0.64
+  if $name == "qarta"
+    opacity $opacites.qarta // 0.56
+  if $name == "anie"
+    opacity $opacites.anie // 0.48 secondary text disabled state
+  if $name == "puzo"
+    opacity $opacites.puzo // 0.4
+  if $name == "biqe"
+    opacity $opacites.biqe // 0.32
+  if $name == "hemza"
+    opacity $opacites.hemza // 0.24
+  if $name == "sedra"
+    opacity $opacites.sedra // 0.16
+  if $name == "dere"
+    opacity $opacites.dere // 0.12
+  if $name == "kima"
+    opacity $opacites.kima // 0.08
+  if $name == "imi"
+    opacity $opacites.imi // 0
+
+
+// Скругления
+//////////////////////////////////////////////////////
+$border-radius($name)
+  if $name == "jade"
+    border-radius $border-radiuses.jade // 0
+  if $name == "akbu"
+    border-radius $border-radiuses.akbu // 2px
+  if $name == "rajol"
+    border-radius $border-radiuses.rajol // 4px
+  if $name == "theku"
+    border-radius $border-radiuses.theku // 6px
+  if $name == "bana"
+    border-radius $border-radiuses.bana // 8px
+  if $name == "sylilis"
+    border-radius $border-radiuses.sylilis // 12px
+  if $name == "kurza"
+    border-radius $border-radiuses.kurza // 16px
+  if $name == "eluno"
+    border-radius $border-radiuses.eluno // 20px
+  if $name == "geban"
+    border-radius $border-radiuses.geban // 24px
+  if $name == "nemea"
+    border-radius $border-radiuses.nemea // 32px
+
+
+// Utilities
+//////////////////////////////////////////////////////
+// Миксины без аргументов дублируют плейсхолдеры,
+// чтобы можно было передать в медиа-миксины
+
+// Long string and blocks to ellipsis
+$lineOverflow()
+  @extend $lineOverflow
+
+// Защита для больших блоков текста, например в гридах
+$veryLongLettersProtection()
+  @extend $longLettersProtection
+
+$flexCenter()
+  display flex
+  align-items center
+  justify-content center
+
+
+$multiLineOverflow($lineheight = none, $lines = 1)
+  overflow hidden
+  text-overflow ellipsis
+  display block // Fallback for non-webkit
+  display -webkit-box
+  white-space normal
+  -webkit-line-clamp $lines
+  -webkit-box-orient vertical
+  max-height: $lineheight == none ? none : $lineheight * $lines
+
+

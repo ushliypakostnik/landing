@@ -1,0 +1,203 @@
+// Placeholders
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Utilities
+//////////////////////////////////////////////////////
+
+$flexCenter
+  display flex
+  align-items center
+  justify-content center
+
+// Ellipsis to long string
+$lineOverflow
+  display block
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
+// Защита для больших блоков текста, например в гридах
+$longLettersProtection
+  -ms-word-break break-all
+  word-break break-all
+  word-break break-word
+  -webkit-hyphens auto
+  -moz-hyphens auto
+  -ms-hyphens auto
+  hyphens auto
+
+
+// DS Shadows
+//////////////////////////////////////////////////////
+
+$bigShadow
+  $x = 0px
+  $y = 8px
+  $b = 32px
+
+  box-shadow $x $y $b 0px $colors.hamilton
+  box-shadow $x $y $b 0px var(--hamilton)
+
+  &:hover
+    box-shadow $x $y $b 0px $colors.hamiltonHover
+    box-shadow $x $y $b 0px var(--hamiltonHover)
+
+  &:active
+    box-shadow $x $y $b 0px $colors.hamiltonPressed
+    box-shadow $x $y $b 0px var(--hamiltonPressed)
+
+
+$mediumShadow
+  $x = 0px
+  $y = 4px
+  $b = 16px
+
+  box-shadow $x $y $b 0px $colors.hamilton
+  box-shadow $x $y $b 0px var(--hamilton)
+
+  &:hover
+    box-shadow $x $y $b 0px $colors.hamiltonHover
+    box-shadow $x $y $b 0px var(--hamiltonHover)
+
+  &:active
+    box-shadow $x $y $b 0px $colors.hamiltonPressed
+    box-shadow $x $y $b 0px var(--hamiltonPressed)
+
+
+$zelipeaShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.rockyOpacity
+  box-shadow $x $y $b 0px var(--rockyOpacity)
+
+
+$kalypiseShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.matrixOpacity
+  box-shadow $x $y $b 0px var(--matrixOpacity)
+
+
+$ambrosiaShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.lebowskiOpacity
+  box-shadow $x $y $b 0px var(--lebowskiOpacity)
+
+
+$meilitaeShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.fargoOpacity
+  box-shadow $x $y $b 0px var(--fargoOpacity)
+
+
+$asteriaShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.gentelmenOpacity
+  box-shadow $x $y $b 0px var(--gentelmenOpacity)
+
+
+$menodiceShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.metropolisOpacity
+  box-shadow $x $y $b 0px var(--metropolisOpacity)
+
+
+$pontoporeiaShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.fightclubOpacity
+  box-shadow $x $y $b 0px var(--fightclubOpacity)
+
+
+$plephioneShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.aquamanOpacity
+  box-shadow $x $y $b 0px var(--aquamanOpacity)
+
+
+$leuciphiaShadow
+  $x = 0px
+  $y = 2px
+  $b = 8px
+
+  box-shadow $x $y $b 0px $colors.goodfellasOpacity
+  box-shadow $x $y $b 0px var(--goodfellasOpacity)
+
+
+$creasiShadow
+  $x = 0px
+  $y = 0px
+  $b = 0px
+
+  box-shadow $x $y $b 4px $colors.avengers
+  box-shadow $x $y $b 4px var(--avengers )
+
+
+// DS Elements
+//////////////////////////////////////////////////////
+
+// Кнопка
+$button
+  user-select none
+  cursor pointer
+  border none
+  text-decoration none
+  white-space nowrap
+  outline none
+  text-align center
+
+  &--primary
+    background $colors.rocky
+    background var(--rocky)
+    color $colors.white
+    color var(--white)
+
+    &:hover
+      background $colors.rockyHover
+      background var(--rockyHover)
+
+    &:active
+      background $colors.rockyPressed
+      background var(--rockyPressed)
+
+  &--secondary
+    background $colors.avengers
+    background var(--avengers)
+    color $colors.rocky
+    color var(--rocky)
+
+    &:hover
+      background $colors.avengersHover
+      background var(--avengersHover)
+
+    &:active
+      background $colors.avengersPressed
+      background var(--avengersPressed)
+
+  &--disabled
+    pointer-events none
+    cursor default
+    opacity $opacites.biqe
