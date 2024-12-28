@@ -130,6 +130,7 @@ export default defineComponent({
     const theme = computed(() => store.getters['persist/theme']);
 
     let onScroll: () => void;
+    let onResize: () => void;
     let toggleMenu: (is: boolean) => void;
     let onClickOutside: () => void;
     let isScroll = ref(false);
@@ -138,14 +139,19 @@ export default defineComponent({
 
     onMounted(() => {
       window.addEventListener('scroll', () => onScroll(), false);
+      window.addEventListener('resize', () => onResize(), false);
 
-      const landing = document.getElementById('layout__landing');
-      if (landing) height.value = landing.offsetHeight - 128;
+      onResize();
     });
 
     onScroll = () => {
       if (Math.round(window.scrollY) > height.value) isScroll.value = true;
       else isScroll.value = false;
+    };
+
+    onResize = () => {
+      const landing = document.getElementById('layout__landing');
+      if (landing) height.value = landing.offsetHeight - 128;
     };
 
     toggleMenu = (is) => {

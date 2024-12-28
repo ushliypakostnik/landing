@@ -113,8 +113,8 @@
 
             <div class="footer__part visible--flex--middle">
               <div>Тема</div>
-              <SimpleButton skin="secondary" is-rounded>
-                <Icon name="ecology" @click="toggleTheme" />
+              <SimpleButton skin="secondary" @click="toggleTheme" is-rounded>
+                <Icon name="ecology" />
               </SimpleButton>
             </div>
           </div>
@@ -122,8 +122,8 @@
           <div class="footer__block footer__block--second">
             <div class="footer__part hidden--flex--middle">
               <div>Тема</div>
-              <SimpleButton skin="secondary" is-rounded>
-                <Icon name="ecology" @click="toggleTheme" />
+              <SimpleButton skin="secondary" @click="toggleTheme" is-rounded>
+                <Icon name="ecology" />
               </SimpleButton>
             </div>
 

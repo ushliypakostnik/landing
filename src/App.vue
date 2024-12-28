@@ -17,6 +17,8 @@
             </video>
           </div>
 
+          <div class="app__top-overlay" />
+
           <Wrapper>
             <div class="app__wrapper-outer">
               <div class="app__wrapper">
@@ -123,15 +125,26 @@ $name = '.app'
 {$name}
   &__top
     position relative
-    background #000000
     color $colors.white
     color var(--white)
     width 100%
     height 100vh
     overflow hidden
+    background url('./assets/images/image.png') no-repeat
+    background-size cover
 
     &-wrapper
       @extend $flexCenter
+      position absolute
+      width 100%
+      height 100%
+      left 0
+      right 0
+      top 0
+      bottom 0
+
+    &-overlay
+      background #0000007A
       position absolute
       width 100%
       height 100%
