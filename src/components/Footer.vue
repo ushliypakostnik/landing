@@ -14,6 +14,13 @@
             <div class="footer__subtitle">
               Наш менеджер свяжется с вами для обсуждения деталей
             </div>
+            <div class="footer__check">
+              <Checkbox text="Согласен на ">
+                <template #link>
+                  <Link text="обработку персональных данных" />
+                </template>
+              </Checkbox>
+            </div>
             <div class="footer__form">
               <div class="footer__form-grid">
                 <div>
@@ -219,6 +226,8 @@ import Button from '@/components/ds/Button.vue';
 import SimpleButton from '@/components/ds/SimpleButton.vue';
 import Icon from '@/components/ds/Icon.vue';
 import Input from '@/components/ds/Input.vue';
+import Checkbox from '@/components/ds/Checkbox.vue';
+import Link from '@/components/ds/Link.vue';
 
 // Utils
 import emmiter from '@/utils/emitter';
@@ -232,6 +241,8 @@ export default defineComponent({
     SimpleButton,
     Icon,
     Input,
+    Checkbox,
+    Link,
   },
 
   setup() {
@@ -424,4 +435,7 @@ $name = '.footer'
     +$narrow()
       width 100%
       margin-left 0
+
+  &__check
+    margin-bottom 24px
 </style>

@@ -201,3 +201,121 @@ $button
     pointer-events none
     cursor default
     opacity $opacites.biqe
+
+$control__control
+  @extend $mediumShadow
+  width 100%
+  height 40px
+  appearance none
+  -webkit-appearance inherit
+  color $colors.harakiri
+  color var(--harakiri)
+  background $colors.amelie
+  background var(--amelie)
+  transition all $effects.duration
+  padding 2px 16px
+  border none
+  border-radius $border-radiuses.bana
+  $text("sulguni")
+
+$control__placeholder
+  @extend $lineOverflow
+  max-width calc(100% - 32px)
+  position absolute
+  top 10px
+  left 16px
+  transition all $effects.duration
+  pointer-events none
+  $opacity("qarta")
+  $text("sulguni")
+
+$control__wrapper
+  position relative
+  width 100%
+  height 40px
+
+  &:hover
+    .control__placeholder
+      color $colors.troy
+      color var(--troy)
+
+  &:active,
+  &--focus
+    .control__control
+      box-shadow 0 4px 16px 0px $colors.hamiltonPressed
+      box-shadow 0 4px 16px 0px var(--hamiltonPressed)
+      padding-top 18px
+
+    .control__placeholder
+      color $colors.troy
+      color var(--troy)
+      top 2px
+      $text("briscola")
+
+$check
+  &__label
+    width 100%
+    display flex
+    align-items flex-start
+    cursor pointer
+
+    &:hover
+      .checkbox__border-inner
+        @extend $creasiShadow
+        border 2px solid $colors.dangalHover
+        border 2px solid var(--dangalHover)
+
+      .checkbox__text
+        color $colors.harakiri
+        color var(--harakiri)
+
+    &:active
+      .checkbox__text
+        color $colors.harakiri
+        color var(--harakiri)
+
+    &--checked
+      .checkbox__image
+        background: url("../../../assets/svg/ds/ok.svg") $colors.rocky no-repeat center 2px;
+        background: url("../../../assets/svg/ds/ok.svg") var(--rocky) no-repeat center 2px;
+
+  &__wrapper
+    width 100%
+    display flex
+    margin-bottom 20px
+
+  &__input
+    visibility hidden
+    position absolute
+    pointer-events none
+
+  &__image
+    width 16px
+    height 16px
+    border-radius $border-radiuses.rajol
+
+  &__border
+    @extend $flexCenter
+    position relative
+    width 24px
+    height 24px
+    margin-right 8px
+    cursor pointer
+
+  &__border-inner
+    position absolute
+    left 4px
+    right 4px
+    top 4px
+    bottom 4px
+    width 16px
+    height 16px
+    border 2px solid $colors.dangal
+    border 2px solid var(--dangal)
+    border-radius $border-radiuses.rajol
+
+  &__text
+    white-space nowrap
+    padding-top 4px
+    $text("sulguni")
+    $opacity("ekas")
