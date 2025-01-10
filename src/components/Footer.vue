@@ -332,7 +332,7 @@ $name = '.footer'
 
     +$narrow()
       padding-top 48px
-      height 400px
+      height 460px
 
       > div
         bottom -48px
@@ -346,7 +346,7 @@ $name = '.footer'
       height 480px
 
     +$narrow()
-      height 520px
+      height 580px
 
   &__bottom
     padding 32px 0

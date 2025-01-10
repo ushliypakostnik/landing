@@ -40,10 +40,73 @@
       </template>
 
       <main role="main">
-        <section class="app__section">
+        <section class="app__section app__section--product">
+          <Wrapper>
+            <div class="app__title">О продукте</div>
+            <div class="app__subtitle">
+              6 модулей для производства, эксплуатации, сбыта и управления
+              ресурсоснабжением
+            </div>
+            <div class="app__grid">
+              <div class="app__card">
+                <div class="app__card-tag">Производство</div>
+                <div class="app__card-header">Анализ режимов</div>
+                <div class="app__card-text">
+                  Модуль для мониторинга и анализа режимов работы оборудования,
+                  отдельных сегментов сети, повышение качества и надёжности
+                </div>
+              </div>
+              <div class="app__card">
+                <div class="app__card-tag">Производство</div>
+                <div class="app__card-header">Анализ балансов</div>
+                <div class="app__card-text">
+                  Модуль для выявление зон наибольших потерь и локализации
+                  дисбаланса системы, сокращение коммерческих и технологических
+                  потерь
+                </div>
+              </div>
+              <div class="app__card">
+                <div class="app__card-tag">Эксплуатация</div>
+                <div class="app__card-header">Поддержка эксплуатации</div>
+                <div class="app__card-text">
+                  Модуль для повышение эффективности работы эксплуатационного
+                  персонала на объектах предприятия
+                </div>
+              </div>
+              <div class="app__card">
+                <div class="app__card-tag">Эксплуатация</div>
+                <div class="app__card-header">Заявки</div>
+                <div class="app__card-text">
+                  Модуль для повышения эффективности выполнения плановых и
+                  аварийных ремонтных работ, использования транспортных средств
+                  и спецтехники
+                </div>
+              </div>
+              <div class="app__card">
+                <div class="app__card-tag">Сбыт</div>
+                <div class="app__card-header">Обходчик контролёр</div>
+                <div class="app__card-text">
+                  Модуль для автоматизации обследования абонентов, контроль
+                  потребления ресурсов
+                </div>
+              </div>
+              <div class="app__card">
+                <div class="app__card-tag">Управление</div>
+                <div class="app__card-header">Центральная панель</div>
+                <div class="app__card-text">
+                  Модуль для умного визуального представления ключевых
+                  показателей через систему гибко настраиваемых панелей
+                  индикаторов
+                </div>
+              </div>
+            </div>
+          </Wrapper>
+        </section>
+
+        <section class="app__section app__section--dev">
           <div>
             <div class="app__cat" />
-            <div>Сайт в разработке.</div>
+            <div class="app__cat-text">Сайт в разработке.</div>
           </div>
         </section>
       </main>
@@ -153,12 +216,30 @@ $name = '.app'
       top 0
       bottom 0
 
+    {$name}__title
+      color $colors.white
+      color var(--white)
+
   &__title
     margin-bottom 8px
+    color $colors.harakiri
+    color var(--harakiri)
     $text("cheddar")
 
     +$narrow()
       $text("ricotta")
+
+  &__subtitle
+    color $colors.troy
+    color var(--troy)
+    margin-bottom 40px
+    $text("mascarpone")
+
+    +$narrow()
+      $text("parmigiano")
+
+  &__grid
+    display grid
 
   &__text
     margin-bottom 32px
@@ -175,18 +256,57 @@ $name = '.app'
       position relative
 
   &__section
-    @extend $flexCenter
-    height 700px
     background $colors.amelie
     background var(--amelie)
-    color $colors.troy
-    color var(--troy)
-    text-align center
-    $text("cheddar")
 
-    +$narrow()
-      height 400px
-      $text("ricotta")
+    &--dev
+      @extend $flexCenter
+      height 700px
+      text-align center
+
+      +$narrow()
+        height 400px
+
+    &--product
+      padding-top 80px
+      padding-bottom 80px
+
+      {$name}__grid
+        grid-gap 12px
+        grid-auto-flow column
+        grid-template-columns repeat(3, 1fr)
+        grid-template-rows repeat(2, 1fr)
+
+        +$middle()
+          grid-template-columns repeat(2, 1fr)
+          grid-template-rows repeat(3, 1fr)
+
+        +$narrow()
+          grid-template-columns repeat(1, 1fr)
+          grid-template-rows repeat(6, 1fr)
+
+  &__card
+    background $colors.trainspotting
+    background var(--trainspotting)
+    padding 20px
+    $border-radius("bana")
+
+    &-tag
+      margin-bottom 4px
+      color $colors.rocky
+      color var(--rocky)
+      $text("mozzarella")
+
+    &-header
+      margin-bottom 8px
+      color $colors.harakiri
+      color var(--harakiri)
+      $text("taleggio")
+
+    &-text
+      color $colors.troy
+      color var(--troy)
+      $text("parmigiano")
 
   &__cat
     margin 0 auto
@@ -194,4 +314,12 @@ $name = '.app'
     height 152px
     background url('./assets/images/cat.png') no-repeat
     background-size cover
+
+    &-text
+      color $colors.troy
+      color var(--troy)
+      $text("cheddar")
+
+      +$narrow()
+        $text("ricotta")
 </style>
