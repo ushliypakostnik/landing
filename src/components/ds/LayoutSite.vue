@@ -10,7 +10,7 @@
           <div class="layout__menu-left">
             <div
               class="layout__menu-control hidden--block--desktops"
-              @click="toggleMenu(true)"
+              @click.prevent="toggleMenu(true)"
             >
               <img
                 v-if="theme === Themes.default && isScroll"
@@ -62,7 +62,7 @@
           <div class="layout__gadgets-top">
             <div
               class="layout__menu-control hidden--desktops"
-              @click="toggleMenu(false)"
+              @click.prevent="toggleMenu(false)"
             >
               <img
                 v-if="theme === Themes.default"
@@ -135,6 +135,7 @@ export default defineComponent({
     let onClickOutside: () => void;
     let isScroll = ref(false);
     let isMenu = ref(false);
+    let isClick = ref(false);
     let height = ref(909);
 
     onMounted(() => {
@@ -155,7 +156,15 @@ export default defineComponent({
     };
 
     toggleMenu = (is) => {
-      isMenu.value = is;
+      console.log('LayoutSite.vue toggleMenu', is);
+      if (!isClick.value) {
+        isClick.value = true;
+        isMenu.value = is;
+
+        setTimeout(() => {
+          isClick.value = false;
+        }, 100);
+      }
     };
 
     onClickOutside = () => {

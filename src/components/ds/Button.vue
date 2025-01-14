@@ -76,4 +76,7 @@ $name = '.button'
 
   &--wide
     width 100% !important
+
+  +$narrow()
+    width 100%
 </style>

@@ -49,19 +49,20 @@ export default {
 <style lang="stylus" scoped>
 @import "~/src/assets/stylus/main.styl";
 
-  $link($color)
-    border-bottom 2px solid $color
+$link($color)
+  border-bottom 2px solid $color
+  transition all $effects.duration
 
-    &:hover
-      border-bottom 2px solid transparent
-      background $color
+  &:hover
+    border-bottom 2px solid transparent
+    background $color
 
-  .link
-    cursor pointer
-    text-decoration none
-    display inline
+.link
+  cursor pointer
+  text-decoration none
+  display inline
 
-    &--alien
-      $link($colors.alien)
-      $link(var(--alien))
+  &--alien
+    $link($colors.alien)
+    $link(var(--alien))
 </style>

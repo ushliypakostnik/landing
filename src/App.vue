@@ -32,7 +32,14 @@
                   /><span class="hidden--inline--desktops">&nbsp;</span
                   >информационного пространства
                 </div>
-                <Button size="laripha">Заказать демонстрацию</Button>
+
+                <div class="app__wrapper-flex">
+                  <Button size="laripha">Заказать демонстрацию</Button>
+
+                  <div class="app__video-button">
+                    <Plank title="Видео со звуком" subtitle="5:28, 140 Мб" />
+                  </div>
+                </div>
               </div>
             </div>
           </Wrapper>
@@ -106,7 +113,7 @@
         <section class="app__section app__section--slider">
           <div class="app__slider">
             <Carousel v-bind="config">
-              <Slide v-for="slide in 6" :key="slide">
+              <Slide v-for="slide in 9" :key="slide">
                 <div :class="`app__slide app__slide--${slide}`" />
               </Slide>
 
@@ -115,130 +122,76 @@
                   <template #prev>
                     <div class="app__arrow-left">
                       <svg
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
+                        class="visible--block--narrow"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 32 32"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g filter="url(#filter0_d_622_738)">
-                          <rect
-                            x="16"
-                            y="12"
-                            width="48"
-                            height="48"
-                            rx="24"
-                            fill="white"
-                          />
-                          <path
-                            d="M45.8255 21.5627C46.1362 21.1061 46.018 20.484 45.5614 20.1733C45.3892 20.0562 45.1934 20 44.9997 20C44.6797 19.9998 44.3651 20.153 44.1715 20.4375L34.7302 34.3124C34.7202 34.3271 34.7103 34.3419 34.7005 34.3568L34.348 34.875C33.886 35.5539 33.886 36.4463 34.348 37.1252L34.7006 37.6434C34.7103 37.6583 34.7202 37.6731 34.7302 37.6878L44.1715 51.5627C44.3651 51.8472 44.6797 52.0004 44.9997 52.0002C45.1934 52.0002 45.3892 51.944 45.5614 51.8268C46.018 51.5161 46.1362 50.8941 45.8255 50.4375L36.3667 36.5369C36.1583 36.2095 36.1584 35.7907 36.3668 35.4633L45.8255 21.5627Z"
-                            fill="#80858E"
-                          />
-                        </g>
-                        <defs>
-                          <filter
-                            id="filter0_d_622_738"
-                            x="0"
-                            y="0"
-                            width="80"
-                            height="80"
-                            filterUnits="userSpaceOnUse"
-                            color-interpolation-filters="sRGB"
-                          >
-                            <feFlood
-                              flood-opacity="0"
-                              result="BackgroundImageFix"
-                            />
-                            <feColorMatrix
-                              in="SourceAlpha"
-                              type="matrix"
-                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                              result="hardAlpha"
-                            />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="8" />
-                            <feColorMatrix
-                              type="matrix"
-                              values="0 0 0 0 0.0470588 0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0.12 0"
-                            />
-                            <feBlend
-                              mode="normal"
-                              in2="BackgroundImageFix"
-                              result="effect1_dropShadow_622_738"
-                            />
-                            <feBlend
-                              mode="normal"
-                              in="SourceGraphic"
-                              in2="effect1_dropShadow_622_738"
-                              result="shape"
-                            />
-                          </filter>
-                        </defs>
+                        <rect width="32" height="32" rx="16" fill="white" />
+                        <path
+                          d="M18.8378 10.0416C19.1368 9.57729 19.0028 8.95846 18.5385 8.65941C18.3708 8.55135 18.1828 8.49983 17.9971 8.5C17.6688 8.5003 17.3473 8.66209 17.1563 8.95864L13.6673 14.3757C13.6656 14.3783 13.6639 14.3809 13.6623 14.3835L13.3186 14.9172C12.8938 15.5767 12.8938 16.4236 13.3186 17.0831L13.6623 17.6168C13.664 17.6194 13.6656 17.622 13.6673 17.6246L17.1563 23.0416C17.2685 23.2157 17.4256 23.3434 17.6027 23.4192C17.8524 23.5261 18.1417 23.5298 18.4007 23.4152C18.4478 23.3944 18.4939 23.3696 18.5385 23.3408C19.0029 23.0418 19.1368 22.4229 18.8378 21.9586L15.3487 16.5416C15.3478 16.5401 15.3468 16.5386 15.3458 16.5371C15.1373 16.2095 15.1373 15.7908 15.3458 15.4632L18.8378 10.0416Z"
+                          fill="#80858E"
+                        />
+                      </svg>
+                      <svg
+                        class="hidden--block--narrow"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="48" height="48" rx="24" fill="white" />
+                        <path
+                          d="M29.8255 9.56267C30.1362 9.10607 30.018 8.48405 29.5614 8.17335C29.3892 8.05617 29.1934 8.00001 28.9997 8C28.6797 7.9998 28.3651 8.15296 28.1715 8.43753L18.7302 22.3124C18.7202 22.3271 18.7103 22.3419 18.7005 22.3568L18.348 22.875C17.886 23.5539 17.886 24.4463 18.348 25.1252L18.7006 25.6434C18.7103 25.6583 18.7202 25.6731 18.7302 25.6878L28.1715 39.5627C28.3651 39.8472 28.6797 40.0004 28.9997 40.0002C29.1934 40.0002 29.3892 39.944 29.5614 39.8268C30.018 39.5161 30.1362 38.8941 29.8255 38.4375L20.3667 24.5369C20.1583 24.2095 20.1584 23.7907 20.3668 23.4633L29.8255 9.56267Z"
+                          fill="#80858E"
+                        />
                       </svg>
                     </div>
                   </template>
                   <template #next>
-                    <div class="app__arrow-left">
+                    <div class="app__arrow-right">
                       <svg
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
+                        class="visible--block--narrow"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 32 32"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g filter="url(#filter0_d_622_750)">
-                          <rect
-                            x="16"
-                            y="12"
-                            width="48"
-                            height="48"
-                            rx="24"
-                            fill="white"
-                          />
+                        <rect width="32" height="32" rx="16" fill="white" />
+                        <g clip-path="url(#clip0_926_2355)">
                           <path
-                            d="M34.1748 21.5627C33.8641 21.1061 33.9824 20.484 34.439 20.1733C34.6112 20.0562 34.8069 20 35.0006 20C35.3207 19.9998 35.6352 20.153 35.8289 20.4375L45.2702 34.3124C45.2802 34.3271 45.2901 34.3419 45.2998 34.3568L45.6524 34.875C46.1144 35.5539 46.1144 36.4463 45.6524 37.1252L45.2998 37.6434C45.2901 37.6583 45.2802 37.6731 45.2702 37.6878L35.8289 51.5627C35.6352 51.8472 35.3207 52.0004 35.0006 52.0002C34.8069 52.0002 34.6112 51.944 34.439 51.8268C33.9824 51.5161 33.8641 50.8941 34.1748 50.4375L43.6336 36.5369C43.842 36.2095 43.842 35.7907 43.6336 35.4633L34.1748 21.5627Z"
+                            d="M13.1623 10.0416C12.8633 9.57729 12.9973 8.95846 13.4616 8.65941C13.6293 8.55135 13.8173 8.49983 14.003 8.5C14.3313 8.5003 14.6528 8.66209 14.8438 8.95864L18.3328 14.3757C18.3345 14.3783 18.3362 14.3809 18.3378 14.3835L18.6815 14.9172C19.1063 15.5767 19.1063 16.4236 18.6815 17.0831L18.3378 17.6168C18.3361 17.6194 18.3345 17.622 18.3328 17.6246L14.8438 23.0416C14.7316 23.2157 14.5745 23.3434 14.3974 23.4192C14.1477 23.5261 13.8584 23.5298 13.5994 23.4152C13.5523 23.3944 13.5062 23.3696 13.4616 23.3408C12.9973 23.0418 12.8633 22.4229 13.1623 21.9586L16.6514 16.5416C16.6523 16.5401 16.6533 16.5386 16.6543 16.5371C16.8628 16.2095 16.8628 15.7908 16.6543 15.4632L13.1623 10.0416Z"
                             fill="#80858E"
                           />
                         </g>
                         <defs>
-                          <filter
-                            id="filter0_d_622_750"
-                            x="0"
-                            y="0"
-                            width="80"
-                            height="80"
-                            filterUnits="userSpaceOnUse"
-                            color-interpolation-filters="sRGB"
-                          >
-                            <feFlood
-                              flood-opacity="0"
-                              result="BackgroundImageFix"
+                          <clipPath id="clip0_926_2355">
+                            <rect
+                              width="6"
+                              height="16"
+                              fill="white"
+                              transform="translate(13 8)"
                             />
-                            <feColorMatrix
-                              in="SourceAlpha"
-                              type="matrix"
-                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                              result="hardAlpha"
-                            />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="8" />
-                            <feColorMatrix
-                              type="matrix"
-                              values="0 0 0 0 0.0470588 0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0.12 0"
-                            />
-                            <feBlend
-                              mode="normal"
-                              in2="BackgroundImageFix"
-                              result="effect1_dropShadow_622_750"
-                            />
-                            <feBlend
-                              mode="normal"
-                              in="SourceGraphic"
-                              in2="effect1_dropShadow_622_750"
-                              result="shape"
-                            />
-                          </filter>
+                          </clipPath>
                         </defs>
+                      </svg>
+                      <svg
+                        class="hidden--block--narrow"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="48" height="48" rx="24" fill="white" />
+                        <path
+                          d="M18.1748 9.56267C17.8641 9.10607 17.9824 8.48405 18.439 8.17335C18.6112 8.05617 18.8069 8.00001 19.0006 8C19.3207 7.9998 19.6352 8.15296 19.8289 8.43753L29.2702 22.3124C29.2802 22.3271 29.2901 22.3419 29.2998 22.3568L29.6524 22.875C30.1144 23.5539 30.1144 24.4463 29.6524 25.1252L29.2998 25.6434C29.2901 25.6583 29.2802 25.6731 29.2702 25.6878L19.8289 39.5627C19.6352 39.8472 19.3207 40.0004 19.0006 40.0002C18.8069 40.0002 18.6112 39.944 18.439 39.8268C17.9824 39.5161 17.8641 38.8941 18.1748 38.4375L27.6336 24.5369C27.842 24.2095 27.842 23.7907 27.6336 23.4633L18.1748 9.56267Z"
+                          fill="#80858E"
+                        />
                       </svg>
                     </div>
                   </template>
@@ -247,6 +200,281 @@
               </template>
             </Carousel>
           </div>
+        </section>
+
+        <section class="app__section app__section--color app__section--color1">
+          <Wrapper>
+            <div class="app__color app__color--1">
+              <div class="app__color-wrapper-outer visible--flex--widest">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--1">
+                      <div>
+                        Управление ресурсами<br />на основе «больших данных»
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--2">
+                      <div>
+                        Математическое моделирование<br />и машинное обучение
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--3">
+                      <div>Мобильные<br />технологии</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--4">
+                      <div>
+                        Аналитика и роботизация оцифрованных<br />бизнес-процессов
+                        предприятия
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--5">
+                      <div>
+                        Цифровой контроль за выполнением<br />измеримых
+                        показателей
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app__color-wrapper-outer visible--flex--wide">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--1">
+                      <div>
+                        Управление ресурсами<br />на основе «больших данных»
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--2">
+                      <div>
+                        Математическое моделирование<br />и машинное обучение
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--3">
+                      <div>Мобильные<br />технологии</div>
+                    </div>
+                    <div class="app__color-block app__color-block--4">
+                      <div>
+                        Аналитика и роботизация оцифрованных<br />бизнес-процессов
+                        предприятия
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--5">
+                      <div>
+                        Цифровой контроль за выполнением<br />измеримых
+                        показателей
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app__color-wrapper-outer visible--flex--middle">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--1">
+                      <div>
+                        Управление ресурсами<br />на основе «больших данных»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--2">
+                      <div>
+                        Математическое моделирование<br />и машинное обучение
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--3">
+                      <div>Мобильные<br />технологии</div>
+                    </div>
+                    <div class="app__color-block app__color-block--4">
+                      <div>
+                        Аналитика и роботизация оцифрованных<br />бизнес-процессов
+                        предприятия
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--5">
+                      <div>
+                        Цифровой контроль за выполнением<br />измеримых
+                        показателей
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app__color-wrapper-outer visible--flex--narrow">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--1">
+                      <div>
+                        Управление ресурсами<br />на основе «больших данных»
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--2">
+                      <div>
+                        Математическое моделирование<br />и машинное обучение
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--3">
+                      <div>Мобильные<br />технологии</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--4">
+                      <div>
+                        Аналитика и роботизация оцифрованных<br />бизнес-процессов
+                        предприятия
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--5">
+                      <div>
+                        Цифровой контроль за выполнением<br />измеримых
+                        показателей
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Wrapper>
+        </section>
+
+        <section class="app__section app__section--dev">
+          <div>
+            <div class="app__cat" />
+            <div class="app__cat-text">Сайт в разработке.</div>
+          </div>
+        </section>
+
+        <section class="app__section app__section--color app__section--color2">
+          <Wrapper>
+            <div class="app__color app__color--2">
+              <div class="app__color-wrapper-outer visible--flex--widest">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--6">
+                      <div>
+                        Достоверные данные для стратегического<br />управления и
+                        мониторинга
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--7">
+                      <div>
+                        Повышение эффективности технологического<br />оборудования
+                        и сокращение потерь поставляемого ресурса
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--8">
+                      <div>
+                        Увеличение положительных отзывов и снижение
+                        негативных<br />настроений Населения по услугам
+                        ресурсоснабжения
+                      </div>
+                    </div>
+                    <div class="app__color-block app__color-block--9">
+                      <div>Прозрачность<br />при оказании услуг</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app__color-wrapper-outer hidden--flex--widest">
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--6">
+                      <div class="hidden--flex--narrow">
+                        Достоверные данные для<br />стратегического управления и
+                        мониторинга
+                      </div>
+                      <div class="visible--flex--narrow">
+                        Достоверные данные<br />для стратегического<br />управления
+                        и мониторинга
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--7">
+                      <div class="hidden--flex--narrow">
+                        Повышение эффективности технологического<br />оборудования
+                        и сокращение потерь поставляемого ресурса
+                      </div>
+                      <div class="visible--flex--narrow">
+                        Повышение эффективности<br />технологического
+                        оборудования<br />
+                        и сокращение потерь<br />поставляемого ресурса
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--8">
+                      <div class="hidden--flex--narrow">
+                        Увеличение положительных отзывов и снижение
+                        негативных<br />настроений Населения по услугам
+                        ресурсоснабжения
+                      </div>
+                      <div class="visible--flex--narrow">
+                        Увеличение положительных<br />отзывов и снижение
+                        негативных<br />настроений Населения по<br />услугам
+                        ресурсоснабжения
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app__color-wrapper">
+                  <div class="app__color-wrapper-inner">
+                    <div class="app__color-block app__color-block--9">
+                      <div>Прозрачность<br />при оказании услуг</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Wrapper>
         </section>
 
         <section class="app__section app__section--dev">
@@ -273,6 +501,7 @@ import { defineComponent, onMounted, ref } from 'vue';
 import DS from '@/components/ds/DS.vue';
 import Wrapper from '@/components/ds/Wrapper.vue';
 import Button from '@/components/ds/Button.vue';
+import Plank from '@/components/ds/Plank.vue';
 import LayoutSite from '@/components/ds/LayoutSite.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -287,6 +516,7 @@ export default defineComponent({
     DS,
     Wrapper,
     Button,
+    Plank,
     LayoutSite,
     Footer,
     Carousel,
@@ -342,8 +572,8 @@ export default defineComponent({
 
 // Slider
 :root
-  --vc-pgn-active-color var(--alien)
-  --vc-pgn-background-color var(--apocalypse)
+  --vc-pgn-active-color var(--rocky)
+  --vc-pgn-background-color var(--dangal)
   --vc-pgn-height 8px
   --vc-pgn-width 8px
   --vc-pgn-border-radius 4px
@@ -352,9 +582,23 @@ export default defineComponent({
 .carousel__pagination
   bottom -48px
 
+.carousel__pagination-button:hover
+  color $colors.alien
+  color var(--alien)
+
 $name = '.app'
 
 {$name}
+  &__video-button
+    width 240px
+    background $colors.white
+    background var(--white)
+    $border-radius("kurza")
+
+    +$narrow()
+      width 100%
+      margin-top 24px
+
   &__slider
     margin 0 auto
     background $colors.inception
@@ -422,6 +666,18 @@ $name = '.app'
       background url('./assets/images/6.png') no-repeat
       background-size cover
 
+    &--7
+      background url('./assets/images/7.png') no-repeat
+      background-size cover
+
+    &--8
+      background url('./assets/images/8.png') no-repeat
+      background-size cover
+
+    &--9
+      background url('./assets/images/9.png') no-repeat
+      background-size cover
+
   &__top
     position relative
     color $colors.white
@@ -482,18 +738,274 @@ $name = '.app'
     $text("mascarpone")
 
   &__wrapper
+    width 100%
     position absolute
     left 0
     bottom 0
     padding-bottom 64px
 
+    &-flex
+      display flex
+      justify-content space-between
+
+      +$narrow()
+        display block
+
     &-outer
       height 100vh
       position relative
 
+  &__color-wrapper-outer
+    flex-direction column
+
+  &__color-wrapper-inner
+    display inline-block
+    margin 0 auto
+
+  &__color-wrapper
+    text-align center
+
+    & + {$name}__color-wrapper
+      margin-top 16px
+
+      +$middle()
+        margin-top 8px
+
+      +$narrow()
+        margin-top 8px
+
+  &__color-block
+    display inline-block
+    vertical-align top
+    height 96px
+    $text("taleggio")
+
+    > div
+      @extend $flexCenter
+      width 100%
+      height 100%
+      text-align center
+      background $colors.amelie
+      background var(--amelie)
+      $border-radius("geban")
+
+    +$middle()
+      height 72px
+      $text("bryndza")
+
+    +$narrow()
+      height 64px
+      $text("roquefort")
+
+    &--1
+      width 343px
+      margin-right 16px
+
+      +$middle()
+        width 268px
+        margin-right 0
+
+      +$narrow()
+        width 239px
+        margin-right 0
+
+    &--2
+      width 380px
+      margin-right 16px
+
+      +$wide()
+        margin-right 0
+
+      +$middle()
+        width 299px
+        margin-right 0
+
+      +$narrow()
+        width 249px
+        margin-right 0
+
+    &--3
+      width 166px
+
+      +$wide()
+        margin-right 16px
+
+      +$middle()
+        width 125px
+        margin-right 8px
+
+      +$narrow()
+        width 125px
+        margin-right 0
+
+    &--4
+      width 464px
+      margin-right 16px
+
+      +$wide()
+        margin-right 0
+
+      +$middle()
+        width 365px
+        margin-right 0
+
+      +$narrow()
+        width 201px
+        margin-right 0
+
+    &--5
+      width 418px
+
+      +$middle()
+        width 331px
+
+      +$narrow()
+        width 273px
+
+    &--6
+      width 477px
+      margin-right 16px
+
+      +$wide()
+        margin-right 0
+
+      +$middle()
+        width 381px
+        margin-right 0
+
+      +$narrow()
+        height 80px
+        width 211px
+        margin-right 0
+
+    &--7
+      width 653px
+
+      +$middle()
+        height 92px
+        width 401px
+
+      +$narrow()
+        width 251px
+        height 96px
+
+    &--8
+      width 663px
+      height 92px
+      margin-right 16px
+
+      +$wide()
+        margin-right 0
+
+      +$middle()
+        width 429px
+        margin-right 0
+
+      +$narrow()
+        margin-right 0
+        width 251px
+        height 96px
+
+    &--9
+      width 244px
+
+      +$middle()
+        width 189px
+
+      +$narrow()
+        width 189px
+        height 64px
+
+  &__color
+    @extend $flexCenter
+    width 100%
+    height 100%
+
+    &--1
+      background url('./assets/images/bg_wide.svg') no-repeat
+      border-radius 64px
+
+      +$middle()
+        background url('./assets/images/bg_middle.svg') no-repeat
+
+      +$narrow()
+        background url('./assets/images/bg_narrow.svg') no-repeat
+
+    &--2
+      background url('./assets/images/bg_wide-2.svg') no-repeat
+      border-radius 64px
+
+      +$middle()
+        background url('./assets/images/bg_middle-2.svg') no-repeat
+
+      +$narrow()
+        background url('./assets/images/bg_narrow-2.svg') no-repeat
+
+  &__arrow-left
+    transform translateX(-42px)
+
+    +$wide()
+      transform translateX(-38px)
+
+    +$middle()
+      transform translateX(-32px)
+
+    +$narrow()
+      transform translateX(-30px)
+
+  &__arrow-right
+    transform translateX(42px)
+
+    +$wide()
+      transform translateX(38px)
+
+    +$middle()
+      transform translateX(32px)
+
+    +$narrow()
+      transform translateX(30px)
+
+  &__arrow-left,
+  &__arrow-right
+    @extend $mediumShadow
+    border-radius 50%
+
   &__section
     background $colors.amelie
     background var(--amelie)
+
+    &--color
+      height 336px
+      background-size cover
+
+      > div
+        height 100%
+        color $colors.harakiri
+        color var(--harakiri)
+
+    &--color1
+      padding-top 80px
+
+      +$wide()
+        height 448px
+
+      +$middle()
+        height 472px
+
+      +$narrow()
+        height 528px
+
+    &--color2
+      padding-top 0
+
+      +$wide()
+        height 560px
+
+      +$middle()
+        height 432px
+
+      +$narrow()
+        height 440px
 
     &--dev
       @extend $flexCenter
