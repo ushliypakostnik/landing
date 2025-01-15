@@ -17,7 +17,7 @@
             <div class="footer__check">
               <Checkbox text="Согласен на ">
                 <template #link>
-                  <Link text="обработку персональных данных" />
+                  <Link text="обработку персональных данных" link="#" />
                 </template>
               </Checkbox>
             </div>
@@ -120,18 +120,18 @@
 
             <div class="footer__part visible--flex--middle">
               <div>Тема</div>
-              <SimpleButton skin="secondary" @click="toggleTheme" is-rounded>
+              <ButtonSimple skin="secondary" @click="toggleTheme" is-rounded>
                 <Icon name="ecology" />
-              </SimpleButton>
+              </ButtonSimple>
             </div>
           </div>
 
           <div class="footer__block footer__block--second">
             <div class="footer__part hidden--flex--middle">
               <div>Тема</div>
-              <SimpleButton skin="secondary" @click="toggleTheme" is-rounded>
+              <ButtonSimple skin="secondary" @click="toggleTheme" is-rounded>
                 <Icon name="ecology" />
-              </SimpleButton>
+              </ButtonSimple>
             </div>
 
             <div class="hidden--block--gadgets visible--inline-block--middle">
@@ -144,60 +144,60 @@
 
             <div class="footer__part hidden--flex--narrow">
               <div>Поделиться</div>
-              <SimpleButton
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="vkontakte"
                 is-rounded
               >
                 <Icon name="vkontakte_16" />
-              </SimpleButton>
-              <SimpleButton
+              </ButtonSimple>
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="odnoklassniki"
                 is-rounded
               >
                 <Icon name="odnoklassniki_16" />
-              </SimpleButton>
-              <SimpleButton
+              </ButtonSimple>
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="telegram"
                 is-rounded
               >
                 <Icon name="telegram_16" />
-              </SimpleButton>
+              </ButtonSimple>
             </div>
           </div>
 
           <div class="footer__block footer__block--mobile">
             <div class="footer__part footer__part--social">
               <div>Поделиться</div>
-              <SimpleButton
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="vkontakte"
                 is-rounded
               >
                 <Icon name="vkontakte_16" />
-              </SimpleButton>
-              <SimpleButton
+              </ButtonSimple>
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="odnoklassniki"
                 is-rounded
               >
                 <Icon name="odnoklassniki_16" />
-              </SimpleButton>
-              <SimpleButton
+              </ButtonSimple>
+              <ButtonSimple
                 skin="secondary"
                 color="amelie"
                 background="telegram"
                 is-rounded
               >
                 <Icon name="telegram_16" />
-              </SimpleButton>
+              </ButtonSimple>
             </div>
 
             <div class="visible--block--narrow">
@@ -223,7 +223,7 @@ import { DSEvents, Themes } from '@/utils/constants';
 // Components
 import Wrapper from '@/components/ds/Wrapper.vue';
 import Button from '@/components/ds/Button.vue';
-import SimpleButton from '@/components/ds/SimpleButton.vue';
+import ButtonSimple from '@/components/ds/ButtonSimple.vue';
 import Icon from '@/components/ds/Icon.vue';
 import Input from '@/components/ds/Input.vue';
 import Checkbox from '@/components/ds/Checkbox.vue';
@@ -238,7 +238,7 @@ export default defineComponent({
   components: {
     Wrapper,
     Button,
-    SimpleButton,
+    ButtonSimple,
     Icon,
     Input,
     Checkbox,

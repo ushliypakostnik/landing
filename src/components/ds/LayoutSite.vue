@@ -95,6 +95,10 @@
       </div>
     </transition>
   </div>
+
+  <Teleport to="body">
+    <slot name="modals" />
+  </Teleport>
 </template>
 
 <script lang="ts">
@@ -156,7 +160,7 @@ export default defineComponent({
     };
 
     toggleMenu = (is) => {
-      console.log('LayoutSite.vue toggleMenu', is);
+      // console.log('LayoutSite.vue toggleMenu', is);
       if (!isClick.value) {
         isClick.value = true;
         isMenu.value = is;

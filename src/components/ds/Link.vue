@@ -19,12 +19,12 @@ export default {
 
   props: {
     size: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'salamis',
     },
     skin: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'alien',
     },

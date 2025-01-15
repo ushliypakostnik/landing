@@ -19,16 +19,16 @@
 
 <script lang="ts">
 export default {
-  name: 'SimpleButton',
+  name: 'ButtonSimple',
 
   props: {
     size: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'monithei',
     },
     skin: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'primary',
     },
@@ -63,6 +63,9 @@ $name = '.button'
 
 {$name}--primary
   @extend $button--primary
+
+{$name}--light
+  @extend $button--light
 
 {$name}
   @extend $button

@@ -22,12 +22,12 @@ export default {
 
   props: {
     size: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'helike',
     },
     skin: {
-      type: [String, null],
+      type: String,
       required: false,
       default: 'primary',
     },

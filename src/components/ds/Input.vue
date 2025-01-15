@@ -24,9 +24,9 @@ export default defineComponent({
 
   props: {
     placeholder: {
-      type: [String, null],
+      type: String,
       required: false,
-      default: 'helike',
+      default: '',
     },
   },
 
