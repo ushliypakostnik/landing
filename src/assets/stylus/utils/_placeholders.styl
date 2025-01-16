@@ -218,20 +218,28 @@ $button
     opacity $opacites.biqe
 
 $control__control
-  @extend $mediumShadow
   width 100%
   height 40px
   appearance none
   -webkit-appearance inherit
-  color $colors.harakiri
-  color var(--harakiri)
-  background $colors.amelie
-  background var(--amelie)
   transition all $effects.duration
   padding 2px 16px
   border none
   border-radius $border-radiuses.bana
   $text("sulguni")
+
+$control__control--default
+  color $colors.troy
+  color var(--troy)
+  background $colors.django
+  background var(--django)
+
+$control__control--map
+  @extend $mediumShadow
+  color $colors.harakiri
+  color var(--harakiri)
+  background $colors.amelie
+  background var(--amelie)
 
 $control__placeholder
   @extend $lineOverflow
@@ -239,10 +247,19 @@ $control__placeholder
   position absolute
   top 10px
   left 16px
+  color $colors.metropolis
+  color var(--metropolis)
   transition all $effects.duration
   pointer-events none
   $opacity("qarta")
   $text("sulguni")
+
+$control__wrapper--map
+  &:active,
+  &--focus
+    .control__control
+      box-shadow 0 4px 16px 0px $colors.hamiltonPressed
+      box-shadow 0 4px 16px 0px var(--hamiltonPressed)
 
 $control__wrapper
   position relative
@@ -257,8 +274,6 @@ $control__wrapper
   &:active,
   &--focus
     .control__control
-      box-shadow 0 4px 16px 0px $colors.hamiltonPressed
-      box-shadow 0 4px 16px 0px var(--hamiltonPressed)
       padding-top 18px
 
     .control__placeholder

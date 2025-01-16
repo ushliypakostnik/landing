@@ -19,26 +19,19 @@
               <img v-else :src="require(`@/assets/svg/menu.svg`)" />
             </div>
 
-            <img
-              v-if="theme === Themes.default && isScroll"
-              :src="require(`@/assets/svg/logo_main.svg`)"
-            />
-            <img v-else :src="require(`@/assets/svg/logo_main--white.svg`)" />
+            <slot name="logo" />
           </div>
 
           <ul
             class="layout__links hidden--flex--gadgets"
             :class="[isScroll && 'layout__links--scroll']"
           >
-            <li><a href="#">Модули</a></li>
-            <li><a href="#">Возможности</a></li>
-            <li><a href="#">Для кого</a></li>
-            <li><a href="#">Внедрения</a></li>
-            <li><a href="#">Поддержка</a></li>
+            <li v-for="(item, index) in items" :key="`item--${index}`">
+              <a :href="item.link">{{ item.text }}</a>
+            </li>
           </ul>
-          <Button class="layout__button" size="polyxo"
-            >Заявка на подключение</Button
-          >
+
+          <slot name="button" />
         </div>
       </Wrapper>
     </header>
@@ -71,22 +64,16 @@
               <img v-else :src="require(`@/assets/svg/close--light.svg`)" />
             </div>
 
-            <img
-              v-if="theme === Themes.default"
-              :src="require(`@/assets/svg/logo_main.svg`)"
-            />
-            <img v-else :src="require(`@/assets/svg/logo_main--white.svg`)" />
+            <slot name="logo-gadgets" />
           </div>
           <ul class="layout__gadgets-menu">
-            <li><a href="#">Модули</a></li>
-            <li><a href="#">Возможности</a></li>
-            <li><a href="#">Для кого</a></li>
-            <li><a href="#">Внедрения</a></li>
-            <li><a href="#">Поддержка</a></li>
+            <li v-for="(item, index) in items" :key="`item--${index}`">
+              <a :href="item.link">{{ item.text }}</a>
+            </li>
           </ul>
-          <Button class="layout__gadgets-menu-button" size="helike" is-wide
-            >Заявка на подключение</Button
-          >
+
+          <slot name="button-gadgets" />
+
           <img
             class="layout__gadgets-logo"
             :src="require(`@/assets/svg/logo_RIR--gray.svg`)"
@@ -112,7 +99,6 @@ import { Themes } from '@/utils/constants';
 
 // Components
 import Wrapper from '@/components/ds/Wrapper.vue';
-import Button from '@/components/ds/Button.vue';
 
 export default defineComponent({
   name: 'LayoutSite',
@@ -123,21 +109,26 @@ export default defineComponent({
 
   components: {
     Wrapper,
-    Button,
+  },
+
+  props: {
+    items: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
 
   setup() {
     const store = useStore(key);
 
-    const test = '#00FF00';
-
     const theme = computed(() => store.getters['persist/theme']);
+    const isScroll = computed(() => store.getters['layout/isScroll']);
 
     let onScroll: () => void;
     let onResize: () => void;
     let toggleMenu: (is: boolean) => void;
     let onClickOutside: () => void;
-    let isScroll = ref(false);
     let isMenu = ref(false);
     let isClick = ref(false);
     let height = ref(909);
@@ -150,8 +141,17 @@ export default defineComponent({
     });
 
     onScroll = () => {
-      if (Math.round(window.scrollY) > height.value) isScroll.value = true;
-      else isScroll.value = false;
+      if (Math.round(window.scrollY) > height.value) {
+        store.dispatch('layout/setLayoutState', {
+          field: 'isScroll',
+          value: true,
+        });
+      } else {
+        store.dispatch('layout/setLayoutState', {
+          field: 'isScroll',
+          value: false,
+        });
+      }
     };
 
     onResize = () => {
@@ -182,7 +182,6 @@ export default defineComponent({
       isMenu,
       toggleMenu,
       onClickOutside,
-      test,
     };
   },
 });

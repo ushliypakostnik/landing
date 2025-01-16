@@ -5,6 +5,7 @@ import type { IStore, IStoreModule, TFieldPayload } from '../../models/store';
 
 const initialState: IStoreModule = () => ({
   modal: null,
+  isScroll: false,
 });
 const initial = initialState;
 
@@ -14,6 +15,7 @@ const persist: Module<IStoreModule, IStore> = {
 
   getters: {
     modal: (state: IStoreModule) => state.modal,
+    isScroll: (state: IStoreModule) => state.isScroll,
   },
 
   actions: {

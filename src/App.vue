@@ -1,6 +1,49 @@
 <template>
   <DS>
-    <LayoutSite>
+    <LayoutSite
+      :items="[
+        { link: '#', text: 'Модули' },
+        { link: '#', text: 'Возможности' },
+        { link: '#', text: 'Для кого' },
+        { link: '#', text: 'Внедрения' },
+        { link: '#', text: 'Поддержка' },
+      ]"
+    >
+      <template #logo>
+        <img
+          v-if="theme === Themes.default && isScroll"
+          :src="require(`@/assets/svg/logo_main.svg`)"
+        />
+        <img v-else :src="require(`@/assets/svg/logo_main--white.svg`)" />
+      </template>
+
+      <template #logo-gadgets>
+        <img
+          v-if="theme === Themes.default"
+          :src="require(`@/assets/svg/logo_main.svg`)"
+        />
+        <img v-else :src="require(`@/assets/svg/logo_main--white.svg`)" />
+      </template>
+
+      <template #button>
+        <Button
+          class="layout__button"
+          size="polyxo"
+          @click.prevent="setModal('form')"
+          >Заявка на подключение</Button
+        >
+      </template>
+
+      <template #button-gadgets>
+        <Button
+          class="layout__gadgets-menu-button"
+          size="helike"
+          is-wide
+          @click.prevent="setModal('form')"
+          >Заявка на подключение</Button
+        >
+      </template>
+
       <template #landing>
         <section class="app__top" id="app__top">
           <div class="app__top-wrapper">
@@ -492,7 +535,7 @@
       </main>
 
       <template #modals>
-        <Modal v-show="modal === 'video'">
+        <Modal v-show="modal === 'video'" is-viewport>
           <div class="app__modal-video">
             <video
               id="app__video"
@@ -516,6 +559,35 @@
             </div>
           </div>
         </Modal>
+
+        <Modal v-show="modal === 'form'">
+          <div class="app__modal-title">
+            Закажите бесплатную демонстрацию продукта
+          </div>
+          <div class="app__modal-subtitle">
+            Наш менеджер свяжется с вами для обсуждения деталей
+          </div>
+          <div class="app__modal-form">
+            <div class="app__form-grid">
+              <div>
+                <Input placeholder="Как к вам обращаться" />
+              </div>
+              <div>
+                <Input placeholder="Номер телефона" />
+              </div>
+            </div>
+            <div class="app__modal-check">
+              <Checkbox text="Согласен на ">
+                <template #link>
+                  <Link text="обработку персональных данных" link="#" />
+                </template>
+              </Checkbox>
+            </div>
+            <div class="app__button">
+              <Button size="helike" is-wide>Отправить</Button>
+            </div>
+          </div>
+        </Modal>
       </template>
 
       <template #footer>
@@ -532,6 +604,9 @@ import 'vue3-carousel/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { defineComponent, onMounted, ref, computed, watch } from 'vue';
 
+// Types
+import { Themes } from '@/utils/constants';
+
 // Components
 import DS from '@/components/ds/DS.vue';
 import Wrapper from '@/components/ds/Wrapper.vue';
@@ -541,7 +616,10 @@ import LayoutSite from '@/components/ds/LayoutSite.vue';
 import Modal from '@/components/ds/Modal.vue';
 import ButtonPlayer from '@/components/ds/ButtonPlayer.vue';
 import ButtonSimple from '@/components/ds/ButtonSimple.vue';
+import Input from '@/components/ds/Input.vue';
+import Checkbox from '@/components/ds/Checkbox.vue';
 import Icon from '@/components/ds/Icon.vue';
+import Link from '@/components/ds/Link.vue';
 import Footer from '@/components/Footer.vue';
 
 const config = {
@@ -562,6 +640,9 @@ export default defineComponent({
     ButtonPlayer,
     ButtonSimple,
     Icon,
+    Input,
+    Checkbox,
+    Link,
     Carousel,
     Slide,
     Pagination,
@@ -586,6 +667,8 @@ export default defineComponent({
     let play: () => void;
 
     const modal = computed(() => store.getters['layout/modal']);
+    const theme = computed(() => store.getters['persist/theme']);
+    const isScroll = computed(() => store.getters['layout/isScroll']);
 
     onMounted(() => {
       window.addEventListener('resize', () => onResize(), false);
@@ -631,11 +714,10 @@ export default defineComponent({
     };
 
     setModal = (name) => {
-      if (name === 'video')
-        store.dispatch('layout/setLayoutState', {
-          field: 'modal',
-          value: 'video',
-        });
+      store.dispatch('layout/setLayoutState', {
+        field: 'modal',
+        value: name,
+      });
     };
 
     closeModal = () => {
@@ -683,6 +765,9 @@ export default defineComponent({
       play,
       isPlay,
       slider,
+      isScroll,
+      theme,
+      Themes,
     };
   },
 });
@@ -1215,4 +1300,51 @@ $name = '.app'
     right 0
     top 0
     bottom 0
+
+  &__modal-title
+    color $colors.harakiri
+    color var(--harakiri)
+    margin-bottom 16px
+    $text("camembert")
+
+    +$narrow()
+      $text("burrata")
+
+  &__modal-subtitle
+    color $colors.troy
+    color var(--troy)
+    margin-bottom 24px
+    $text("parmigiano")
+
+  &__modal-form
+    // margin-bottom 24px
+
+  &__modal-check
+    margin-bottom 32px
+
+  &__form-grid
+    margin-bottom 24px
+    > div
+      display inline-block
+      vertical-align top
+
+      &:first-child
+        width 512px
+        margin-right 32px
+
+        +$wide()
+          width 372px
+
+        +$gadgets()
+          width 100%
+          margin-bottom 24px
+
+      &:last-child
+        width 296px
+
+        +$wide()
+          width 212px
+
+        +$gadgets()
+          width 100%
 </style>

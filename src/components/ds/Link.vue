@@ -55,14 +55,22 @@ $link($color)
 
   &:hover
     border-bottom 2px solid transparent
-    background $color
 
 .link
+  color $colors.harakiri
+  color var(--harakiri)
   cursor pointer
   text-decoration none
   display inline
 
+  &:hover
+    border-bottom 2px solid transparent
+
   &--alien
     $link($colors.alien)
     $link(var(--alien))
+
+    &:hover
+      background $colors.alien
+      background var(--alien)
 </style>

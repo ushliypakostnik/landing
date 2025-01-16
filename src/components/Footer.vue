@@ -24,10 +24,10 @@
             <div class="footer__form">
               <div class="footer__form-grid">
                 <div>
-                  <Input placeholder="Как к вам обращаться" />
+                  <Input skin="map" placeholder="Как к вам обращаться" />
                 </div>
                 <div>
-                  <Input placeholder="Номер телефона" />
+                  <Input skin="map" placeholder="Номер телефона" />
                 </div>
               </div>
               <div class="footer__button">

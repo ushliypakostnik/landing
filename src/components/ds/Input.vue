@@ -1,9 +1,10 @@
 <template>
   <div
     class="control__wrapper"
-    :class="{
-      'control__wrapper--focus': control.length > 0 || isFocus,
-    }"
+    :class="[
+      `control--${skin}`,
+      (control.length > 0 || isFocus) && 'control__wrapper--focus',
+    ]"
   >
     <input
       v-model="control"
@@ -23,6 +24,11 @@ export default defineComponent({
   name: 'Input',
 
   props: {
+    skin: {
+      type: String,
+      required: false,
+      default: 'default',
+    },
     placeholder: {
       type: String,
       required: false,
@@ -68,4 +74,15 @@ $name = '.control'
 
   &__control
     @extend $control__control
+
+  &--default
+    {$name}__control
+      @extend $control__control--default
+
+  &--map
+    {$name}__control
+      @extend $control__control--map
+
+    {$name}__wrapper
+      @extend $control__wrapper--map
 </style>
