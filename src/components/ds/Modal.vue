@@ -30,9 +30,7 @@
             Наш менеджер свяжется с вами, чтобы обсудить детали и договориться
             об удобном времени
           </div>
-          <Button size="helike" is-wide @click.prevent="nullForm()"
-            >Хорошо</Button
-          >
+          <Button size="helike" is-wide @click.prevent="close()">Хорошо</Button>
         </template>
       </div>
     </div>

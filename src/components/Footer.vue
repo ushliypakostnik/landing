@@ -7,7 +7,7 @@
             <div class="footer__image" />
           </div>
 
-          <div>
+          <div v-if="!(isSuccess || isError)">
             <div class="footer__title">
               Закажите бесплатную демонстрацию продукта
             </div>
@@ -54,6 +54,35 @@
                 >
               </div>
             </div>
+          </div>
+
+          <div v-else-if="isError">
+            <Icon class="footer__form-icon" name="error" />
+            <div class="footer__form-title">Ошибка отправки</div>
+            <div class="footer__form-subtitle">
+              Что-то пошло не так. Пожалуйста, повторите попытку позже
+            </div>
+            <ButtonAction
+              color="rocky"
+              class="footer__form-action"
+              @click.prevent="nullForm()"
+              >Отправить</ButtonAction
+            >
+          </div>
+
+          <div v-else-if="isSuccess">
+            <Icon class="footer__form-icon" name="success" />
+            <div class="footer__form-title">Заявка отправлена</div>
+            <div class="footer__form-subtitle">
+              Наш менеджер свяжется с вами, чтобы обсудить детали и договориться
+              об удобном времени
+            </div>
+            <ButtonAction
+              color="rocky"
+              class="footer__form-action"
+              @click.prevent="nullForm()"
+              >Хорошо</ButtonAction
+            >
           </div>
         </div>
       </Wrapper>
@@ -236,6 +265,7 @@ import { DSEvents, Themes } from '@/utils/constants';
 import Wrapper from '@/components/ds/Wrapper.vue';
 import Button from '@/components/ds/Button.vue';
 import ButtonSimple from '@/components/ds/ButtonSimple.vue';
+import ButtonAction from '@/components/ds/ButtonAction.vue';
 import Icon from '@/components/ds/Icon.vue';
 import Input from '@/components/ds/Input.vue';
 import Checkbox from '@/components/ds/Checkbox.vue';
@@ -255,6 +285,7 @@ export default defineComponent({
     Input,
     Checkbox,
     Link,
+    ButtonAction,
   },
 
   setup() {
@@ -263,6 +294,12 @@ export default defineComponent({
     const nickname = ref('');
     const phone = ref('');
     const theme = computed(() => store.getters['persist/theme']);
+    const isSuccess = computed(() => store.getters['api/isSuccess']);
+    const isError = computed(() => store.getters['api/isError']);
+
+    const nullForm = () => {
+      store.dispatch('api/nullForm');
+    };
 
     const toggleTheme = () => {
       emmiter.emit(DSEvents.toggleTheme);
@@ -280,8 +317,11 @@ export default defineComponent({
       theme,
       nickname,
       phone,
+      isSuccess,
+      isError,
       toggleTheme,
       postForm,
+      nullForm,
     };
   },
 });
@@ -462,4 +502,22 @@ $name = '.footer'
 
   &__check
     margin-bottom 24px
+
+  &__form-icon
+    margin-bottom 16px
+
+  &__form-title
+    color $colors.harakiri
+    color var(--harakiri)
+    margin-bottom 8px
+    $text("camembert")
+
+    +$narrow()
+      $text("burrata")
+
+  &__form-subtitle
+    color $colors.troy
+    color var(--troy)
+    margin-bottom 16px
+    $text("parmigiano")
 </style>
