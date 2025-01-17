@@ -4,7 +4,36 @@
       <Icon class="modal__close" name="modal-close" @click.prevent="close" />
 
       <div class="modal__wrapper">
-        <slot />
+        <template v-if="!(isSuccess || isError)">
+          <slot />
+        </template>
+
+        <template v-else-if="isError">
+          <Icon class="modal__icon" name="error" />
+          <div class="modal__title">Ошибка отправки</div>
+          <div class="modal__subtitle">
+            Что-то пошло не так. Пожалуйста, повторите попытку позже
+          </div>
+          <Button
+            size="helike"
+            skin="secondary"
+            is-wide
+            @click.prevent="nullForm()"
+            >Отправить</Button
+          >
+        </template>
+
+        <template v-else-if="isSuccess">
+          <Icon class="modal__icon" name="success" />
+          <div class="modal__title">Заявка отправлена</div>
+          <div class="modal__subtitle">
+            Наш менеджер свяжется с вами, чтобы обсудить детали и договориться
+            об удобном времени
+          </div>
+          <Button size="helike" is-wide @click.prevent="nullForm()"
+            >Хорошо</Button
+          >
+        </template>
       </div>
     </div>
 
@@ -19,12 +48,14 @@ import { defineComponent, watch, computed } from 'vue';
 
 // Component
 import Icon from '@/components/ds/Icon.vue';
+import Button from '@/components/ds/Button.vue';
 
 export default defineComponent({
   name: 'Modal',
 
   components: {
     Icon,
+    Button,
   },
 
   props: {
@@ -39,13 +70,22 @@ export default defineComponent({
     const store = useStore(key);
 
     let close: () => void;
+    let nullForm: () => void;
     const modal = computed(() => store.getters['layout/modal']);
     const theme = computed(() => store.getters['persist/theme']);
+    const isSuccess = computed(() => store.getters['api/isSuccess']);
+    const isError = computed(() => store.getters['api/isError']);
+
+    nullForm = () => {
+      store.dispatch('api/nullForm');
+    };
 
     close = () => {
-      store.dispatch('layout/setLayoutState', {
-        field: 'modal',
-        value: null,
+      store.dispatch('api/nullForm').then(() => {
+        store.dispatch('layout/setLayoutState', {
+          field: 'modal',
+          value: null,
+        });
       });
     };
 
@@ -68,7 +108,10 @@ export default defineComponent({
 
     return {
       theme,
+      isSuccess,
+      isError,
       close,
+      nullForm,
     };
   },
 });
@@ -116,4 +159,22 @@ $name = '.modal'
     position absolute
     top 20px
     right 20px
+
+  &__icon
+    margin-bottom 16px
+
+  &__title
+    color $colors.harakiri
+    color var(--harakiri)
+    margin-bottom 16px
+    $text("camembert")
+
+    +$narrow()
+      $text("burrata")
+
+  &__subtitle
+    color $colors.troy
+    color var(--troy)
+    margin-bottom 24px
+    $text("parmigiano")
 </style>

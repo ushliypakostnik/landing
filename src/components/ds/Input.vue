@@ -3,11 +3,11 @@
     class="control__wrapper"
     :class="[
       `control--${skin}`,
-      (control.length > 0 || isFocus) && 'control__wrapper--focus',
+      (modelValue.length > 0 || isFocus) && 'control__wrapper--focus',
     ]"
   >
     <input
-      v-model="control"
+      v-model="model"
       class="control__control"
       @focus="onFocus"
       @blur="onBlur"
@@ -18,12 +18,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 
 export default defineComponent({
   name: 'Input',
 
   props: {
+    modelValue: {
+      type: String,
+      required: false,
+      default: '',
+    },
     skin: {
       type: String,
       required: false,
@@ -36,11 +41,22 @@ export default defineComponent({
     },
   },
 
-  setup() {
-    const control = ref('');
+  emits: ['update:modelValue'],
+
+  setup(props, context) {
     const isFocus = ref(false);
     let onBlur: () => void;
     let onFocus: () => void;
+
+    const model = computed({
+      get() {
+        return props.modelValue;
+      },
+
+      set(value) {
+        return context.emit('update:modelValue', value);
+      },
+    });
 
     onBlur = () => {
       isFocus.value = false;
@@ -51,7 +67,7 @@ export default defineComponent({
     };
 
     return {
-      control,
+      model,
       isFocus,
       onBlur,
       onFocus,

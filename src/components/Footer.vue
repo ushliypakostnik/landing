@@ -24,20 +24,32 @@
             <div class="footer__form">
               <div class="footer__form-grid">
                 <div>
-                  <Input skin="map" placeholder="Как к вам обращаться" />
+                  <Input
+                    v-model="nickname"
+                    skin="map"
+                    placeholder="Как к вам обращаться"
+                  />
                 </div>
                 <div>
-                  <Input skin="map" placeholder="Номер телефона" />
+                  <Input
+                    v-model="phone"
+                    skin="map"
+                    placeholder="Номер телефона"
+                  />
                 </div>
               </div>
               <div class="footer__button">
-                <Button class="hidden--inline-block--narrow" size="helike"
+                <Button
+                  class="hidden--inline-block--narrow"
+                  size="helike"
+                  @click.prevent="postForm()"
                   >Отправить</Button
                 >
                 <Button
                   class="hidden--inline-block--not-narrow"
                   size="helike"
                   is-wide
+                  @click.prevent="postForm()"
                   >Отправить</Button
                 >
               </div>
@@ -213,7 +225,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ref } from 'vue';
 import { useStore } from 'vuex';
 import { key } from '@/store';
 
@@ -248,16 +260,28 @@ export default defineComponent({
   setup() {
     const store = useStore(key);
 
+    const nickname = ref('');
+    const phone = ref('');
     const theme = computed(() => store.getters['persist/theme']);
 
     const toggleTheme = () => {
       emmiter.emit(DSEvents.toggleTheme);
     };
 
+    const postForm = () => {
+      store.dispatch('api/postForm', {
+        nickname: nickname.value,
+        phone: phone.value,
+      });
+    };
+
     return {
       Themes,
       theme,
+      nickname,
+      phone,
       toggleTheme,
+      postForm,
     };
   },
 });

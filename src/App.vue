@@ -570,10 +570,10 @@
           <div class="app__modal-form">
             <div class="app__form-grid">
               <div>
-                <Input placeholder="Как к вам обращаться" />
+                <Input v-model="nickname" placeholder="Как к вам обращаться" />
               </div>
               <div>
-                <Input placeholder="Номер телефона" />
+                <Input v-model="phone" placeholder="Номер телефона" />
               </div>
             </div>
             <div class="app__modal-check">
@@ -584,7 +584,9 @@
               </Checkbox>
             </div>
             <div class="app__button">
-              <Button size="helike" is-wide>Отправить</Button>
+              <Button @click.prevent="postForm()" size="helike" is-wide
+                >Отправить</Button
+              >
             </div>
           </div>
         </Modal>
@@ -606,6 +608,9 @@ import { defineComponent, onMounted, ref, computed, watch } from 'vue';
 
 // Types
 import { Themes } from '@/utils/constants';
+
+// Utisl
+import { ScreenHelper } from '@/utils/constants';
 
 // Components
 import DS from '@/components/ds/DS.vue';
@@ -657,6 +662,8 @@ export default defineComponent({
     let width2 = ref(0);
     let height2 = ref(0);
     let slider = ref(0);
+    const nickname = ref('');
+    const phone = ref('');
     let isMounted = ref(false);
     let isPlay = ref(false);
     let onResize: () => void;
@@ -665,6 +672,7 @@ export default defineComponent({
     let setModal: (name: string) => void;
     let closeModal: () => void;
     let play: () => void;
+    let postForm: () => void;
 
     const modal = computed(() => store.getters['layout/modal']);
     const theme = computed(() => store.getters['persist/theme']);
@@ -702,9 +710,14 @@ export default defineComponent({
       setTimeout(() => {
         const modal = document.getElementById('app__modal');
         if (modal) {
-          if (modal.offsetWidth / modal.offsetHeight <= 16 / 9) {
-            height2.value = modal.offsetHeight;
-            width2.value = (modal.offsetHeight * 16) / 9;
+          if (ScreenHelper.isDesktops()) {
+            if (modal.offsetWidth / modal.offsetHeight <= 16 / 9) {
+              height2.value = modal.offsetHeight;
+              width2.value = (modal.offsetHeight * 16) / 9;
+            } else {
+              width2.value = modal.offsetWidth;
+              height2.value = (modal.offsetWidth * 9) / 16;
+            }
           } else {
             width2.value = modal.offsetWidth;
             height2.value = (modal.offsetWidth * 9) / 16;
@@ -724,6 +737,13 @@ export default defineComponent({
       store.dispatch('layout/setLayoutState', {
         field: 'modal',
         value: null,
+      });
+    };
+
+    postForm = () => {
+      store.dispatch('api/postForm', {
+        nickname: nickname.value,
+        phone: phone.value,
       });
     };
 
@@ -768,6 +788,9 @@ export default defineComponent({
       isScroll,
       theme,
       Themes,
+      postForm,
+      nickname,
+      phone,
     };
   },
 });
@@ -804,6 +827,13 @@ export default defineComponent({
 $name = '.app'
 
 {$name}
+  &__modal-video
+    background $colors.amelie
+    background var(--amelie)
+
+    +$gadgets()
+      height 100%
+
   &__modal-video-close
     position absolute
     top 8px
